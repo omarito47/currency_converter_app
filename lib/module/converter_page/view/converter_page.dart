@@ -40,7 +40,7 @@ class _ConverterPageState extends State<ConverterPage> {
       {required String from,
       required String to,
       required String amount}) async {
-    try {
+
       double parsedAmount = double.parse(amount);
       var output =
           await apiHelper.convertCurrencySecondWay(from, to, parsedAmount);
@@ -48,9 +48,7 @@ class _ConverterPageState extends State<ConverterPage> {
         result = output;
       });
       print(output);
-    } catch (e) {
-      print(e);
-    }
+
   }
 
   void _onRefreshAPIoff() async {
