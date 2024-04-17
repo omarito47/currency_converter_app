@@ -1,8 +1,20 @@
 # currency_converter_app
 
-A new Flutter project.
+This project is a Currency Converter app that allows users to easily convert currency values between different currencies. The app fetches the latest exchange rates from the Exchange Rates API and displays the converted amount based on user input.
 
-## Getting Started
+- Demo for the App
+  
+https://github.com/omarito47/currency_converter_app/assets/73294872/60c4e2fa-889f-42e1-b7b9-0773306a9a45
+
+
+
+## Requirements
+
+
+
+- Exchange Rates API integration link :
+  https://apilayer.com
+
 
 This project is a starting point for a Flutter application.
 
