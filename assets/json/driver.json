@@ -1,0 +1,9 @@
+{
+    "driver": {
+        "fullname": "Pierre Dupont",
+        "username": "pdupont",
+        "password": "driver",
+        "email": "pierre.dupont@pardus-it.com",
+        "phoneNumber": "06 26 44 12 08"
+    }
+}

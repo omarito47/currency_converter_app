@@ -12,8 +12,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+           
             colorSchemeSeed: Colors.blue,
-            brightness: Brightness.dark,
+            brightness: Brightness.light,
             useMaterial3: true),
         home: const ConverterPage());
   }

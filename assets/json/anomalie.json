@@ -1,0 +1,22 @@
+{
+    "anomalies": [
+        {
+            "title": "Adresse incorrecte",
+            "description": "Le chauffeur a remarqué que l'adresse de livraison fournie est incorrecte, ce qui rend difficile la localisation précise du lieu de livraison.",
+            "reference": "#8127241004",
+            "dateTime": "2022-07-23",
+            "site": "DEPOT",
+            "type": "CHARGEMENT"
+        },
+        {
+            "title": "Produit endommagé",
+            "description":
+                "Le colis ou les marchandises présentant des dommages visibles ou ayant été livrés dans un état altéré.",
+            "reference": "#9317241004",
+            "dateTime": "2022-07-23",
+            "site": "DEPOT",
+            "type": "CHARGEMENT"
+
+        }
+    ]
+}

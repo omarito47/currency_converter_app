@@ -1,0 +1,674 @@
+{
+    "Tours": [
+        {
+            "reference": "2307241004",
+            "departureSite": "1, zone artisanale LAVEAU 33230 - SAINT MEDARD DE GUIZIERES",
+            "arrivalSite": "1, zone artisanale LAVEAU 33230 - SAINT MEDARD DE GUIZIERES",
+            "numberClient": 6,
+            "totalDistance": 339.4,
+            "totalTime": "10:18:00",
+            "totalWeight": 50.0,
+            "totalVolume": 50.0,
+            "status": "A realiser",
+            "date": "24-07-23",
+            "sequences": [
+                {
+					"type": "DEBUT_TOUR",
+                    "siteName": "DEPOT",
+                    "Adress": "1, zone artisanale LAVEAU 33230 - SAINT MEDARD DE GUIZIERES",
+                    "start": "24/07/2023 07:00",
+					"end": "24/07/2023 07:00",
+                    "status": "A livré",
+                    "totalWeight": 0.0,
+                    "totalVolume": 0.0,
+                    "totalDistance": 0.0,
+                    "numberProducts": 0,
+                    "longitude": -0.065484,
+                    "latitude": 45.014797,
+                    "phoneNumber": "",
+                    "personToContact": "",
+                    "Email": "",
+                    "arrivedToSite": true,
+                    "products": []
+                },
+				{
+					"type": "CHARGEMENT",
+                    "siteName": "DEPOT",
+                    "Adress": "1, zone artisanale LAVEAU 33230 - SAINT MEDARD DE GUIZIERES",
+                    "start": "24/07/2023 07:00",
+					"end": "24/07/2023 07:00",
+                    "status": "A livré",
+                    "totalWeight": 50.0,
+                    "totalVolume": 50.0,
+                    "totalDistance": 0.0,
+                    "numberProducts": 50,
+                    "longitude": -0.065484,
+                    "latitude": 45.014797,
+                    "phoneNumber": "+???",
+                    "personToContact": "Jean Doe",
+                    "Email": "jean.doe@pardus-it.com",
+                    "arrivedToSite": true,
+                    "products": [
+						{
+                            "productName": "product 1",
+                            "quantity": "10"
+                        },
+                        {
+                            "productName": "product 2",
+                            "quantity": "10"
+                        },
+                        {
+                            "productName": "product 3",
+                            "quantity": "10"
+                        },
+                        {
+                            "productName": "product 4",
+                            "quantity": "10"
+                        },
+                        {
+                            "productName": "product 5",
+                            "quantity": "10"
+                        }]
+                },
+                {
+					"type": "LIVRAISON",
+                    "siteName": "Firm/Ousmane Demb",
+                    "Adress": "LE BOURG 4 ROUTE DE LIMOGES 16150 - CHABRAC",
+                    "start": "24/07/2023 09:37",
+					"end": "24/07/2023 09:57",
+                    "status": "A livré",
+                    "totalWeight": 8.0,
+                    "totalVolume": 8.0,
+                    "totalDistance": 150.2,
+                    "numberProducts": 8,
+                    "longitude": 0.740306,
+                    "latitude": 45.931942,
+                    "phoneNumber": "+?????",
+                    "personToContact": "Ousmane Demb",
+                    "Email": "ous.demb@firm.com",
+                    "arrivedToSite": false,
+                    "products": [
+                        {
+                            "productName": "product 1",
+                            "quantity": "2"
+                        },
+                        {
+                            "productName": "product 2",
+                            "quantity": "2"
+                        },
+                        {
+                            "productName": "product 3",
+                            "quantity": "2"
+                        },
+                        {
+                            "productName": "product 4",
+                            "quantity": "1"
+                        },
+                        {
+                            "productName": "product 5",
+                            "quantity": "1"
+                        }
+                    ]
+                },
+				{
+					"type": "LIVRAISON",
+                    "siteName": "Firm/Hugo Juan",
+                    "Adress": "2 RUE JEAN PIERRE TIMBAUD 87200 - ST JUNIEN",
+                    "start": "24/07/2023 10:15",
+					"end": "24/07/2023 10:35",
+                    "status": "A livré",
+                    "totalWeight": 9.0,
+                    "totalVolume": 9.0,
+                    "totalDistance": 165.7,
+                    "numberProducts": 9,
+                    "longitude": 0.893742,
+                    "latitude": 45.887217,
+                    "phoneNumber": "+?????",
+                    "personToContact": "Hugo Juan",
+                    "Email": "hugo.juan@firm.com",
+                    "arrivedToSite": false,
+                    "products": [
+                        {
+                            "productName": "product 2",
+                            "quantity": "8"
+                        },
+                        {
+                            "productName": "product 4",
+                            "quantity": "1"
+                        }
+                    ]
+                },
+				{
+					"type": "LIVRAISON",
+                    "siteName": "Firm/Karim Cort",
+                    "Adress": "14 RUE DU BOULEVARD 24470 - ST SAUD LACOUSSIERE",
+                    "start": "24/07/2023 11:35",
+					"end": "24/07/2023 11:55",
+                    "status": "A livré",
+                    "totalWeight": 4.0,
+                    "totalVolume": 4.0,
+                    "totalDistance": 212.5,
+                    "numberProducts": 4,
+                    "longitude": 0.817017,
+                    "latitude": 45.545724,
+                    "phoneNumber": "+?????",
+                    "personToContact": "Karim Cort",
+                    "Email": "karim.cort@firm.com",
+                    "arrivedToSite": false,
+                    "products": [
+                        {
+                            "productName": "product 1",
+                            "quantity": "2"
+                        },
+                        {
+                            "productName": "product 5",
+                            "quantity": "2"
+                        }
+                    ]
+                },
+				{
+					"type": "LIVRAISON",
+                    "siteName": "Firm/Lucas Vasc",
+                    "Adress": "LIEU DIT CHEZ CIERMAN 24340 - MAREUIL",
+                    "start": "24/07/2023 14:30",
+					"end": "24/07/2023 14:50",
+                    "status": "A livré",
+                    "totalWeight": 10.0,
+                    "totalVolume": 10.0,
+                    "totalDistance": 239.1,
+                    "numberProducts": 10,
+                    "longitude": 0.439324,
+                    "latitude": 45.424300,
+                    "phoneNumber": "+?????",
+                    "personToContact": "Lucas Vasc",
+                    "Email": "lucas.vasc@firm.com",
+                    "arrivedToSite": false,
+                    "products": [
+                        {
+                            "productName": "product 3",
+                            "quantity": "4"
+                        },
+                        {
+                            "productName": "product 4",
+                            "quantity": "3"
+                        },
+                        {
+                            "productName": "product 5",
+                            "quantity": "3"
+                        }
+                    ]
+                },
+				{
+					"type": "LIVRAISON",
+                    "siteName": "Firm/Franc Berg",
+                    "Adress": "lieu dit saint sicaire 24700 - EYGURANDE ET GARDEDE",
+                    "start": "24/07/2023 16:01",
+					"end": "24/07/2023 16:21",
+                    "status": "A livré",
+                    "totalWeight": 12.0,
+                    "totalVolume": 12.0,
+                    "totalDistance": 239.1,
+                    "numberProducts": 12,
+                    "longitude": 0.117806,
+                    "latitude": 45.074945,
+                    "phoneNumber": "+?????",
+                    "personToContact": "Franc Berg",
+                    "Email": "franc.berg@firm.com",
+                    "arrivedToSite": false,
+                    "products": [
+                        {
+                            "productName": "product 1",
+                            "quantity": "2"
+                        },
+                        {
+                            "productName": "product 3",
+                            "quantity": "4"
+                        },
+                        {
+                            "productName": "product 4",
+                            "quantity": "5"
+                        },
+                        {
+                            "productName": "product 5",
+                            "quantity": "1"
+                        }
+                    ]
+                },
+				{
+					"type": "LIVRAISON",
+                    "siteName": "Firm/Bruno Mars",
+                    "Adress": "15 RUE DE L ISLE 24700 - MONTPON MENESTEROL",
+                    "start": "24/07/2023 16:31",
+					"end": "24/07/2023 16:51",
+                    "status": "A livré",
+                    "totalWeight": 7.0,
+                    "totalVolume": 7.0,
+                    "totalDistance": 320.2,
+                    "numberProducts": 7,
+                    "longitude": 0.159411,
+                    "latitude": 45.010628,
+                    "phoneNumber": "+?????",
+                    "personToContact": "Bruno Mars",
+                    "Email": "bruno.mars@firm.com",
+                    "arrivedToSite": false,
+                    "products": [
+                        {
+                            "productName": "product 1",
+                            "quantity": "4"
+                        },
+                        {
+                            "productName": "product 5",
+                            "quantity": "3"
+                        }
+                    ]
+                },
+				{
+					"type": "FIN_TOUR",
+                    "siteName": "DEPOT",
+                    "Adress": "1, zone artisanale LAVEAU 33230 - SAINT MEDARD DE GUIZIERES",
+                    "start": "24/07/2023 17:18",
+					"end": "24/07/2023 17:18",
+                    "status": "A livré",
+                    "totalWeight": 0.0,
+                    "totalVolume": 0.0,
+                    "totalDistance": 339.4,
+                    "numberProducts": 0,
+                    "longitude": -0.065484,
+                    "latitude": 45.014797,
+                    "phoneNumber": "",
+                    "personToContact": "",
+                    "Email": "",
+                    "arrivedToSite": false,
+                    "products": []
+                }
+                
+            ]
+        },
+		{
+            "reference": "2307241002",
+            "departureSite": "1, zone artisanale LAVEAU 33230 - SAINT MEDARD DE GUIZIERES",
+            "arrivalSite": "1, zone artisanale LAVEAU 33230 - SAINT MEDARD DE GUIZIERES",
+            "numberClient": 4,
+            "totalDistance": 111.4,
+            "totalTime": "04:56:00",
+            "totalWeight": 45.0,
+            "totalVolume": 45.0,
+            "status": "A realiser",
+            "date": "24-07-23",
+            "sequences": [
+                {
+					"type": "DEBUT_TOUR",
+                    "siteName": "DEPOT",
+                    "Adress": "1, zone artisanale LAVEAU 33230 - SAINT MEDARD DE GUIZIERES",
+                    "start": "24/07/2023 11:04",
+					"end": "24/07/2023 11:04",
+                    "status": "A livré",
+                    "totalWeight": 0.0,
+                    "totalVolume": 0.0,
+                    "totalDistance": 0.0,
+                    "numberProducts": 0,
+                    "longitude": -0.065484,
+                    "latitude": 45.014797,
+                    "phoneNumber": "",
+                    "personToContact": "",
+                    "Email": "",
+                    "arrivedToSite": true,
+                    "products": []
+                },
+				{
+					"type": "CHARGEMENT",
+                    "siteName": "DEPOT",
+                    "Adress": "1, zone artisanale LAVEAU 33230 - SAINT MEDARD DE GUIZIERES",
+                    "start": "24/07/2023 11:04",
+					"end": "24/07/2023 11:04",
+                    "status": "A livré",
+                    "totalWeight": 45.0,
+                    "totalVolume": 45.0,
+                    "totalDistance": 0.0,
+                    "numberProducts": 45,
+                    "longitude": -0.065484,
+                    "latitude": 45.014797,
+                    "phoneNumber": "+???",
+                    "personToContact": "Jean Doe",
+                    "Email": "jean.doe@pardus-it.com",
+                    "arrivedToSite": true,
+                    "products": [
+						{
+                            "productName": "product 1",
+                            "quantity": "15"
+                        },
+                        {
+                            "productName": "product 2",
+                            "quantity": "10"
+                        },
+                        {
+                            "productName": "product 3",
+                            "quantity": "7"
+                        },
+                        {
+                            "productName": "product 4",
+                            "quantity": "8"
+                        },
+                        {
+                            "productName": "product 5",
+                            "quantity": "5"
+                        }]
+                },
+                {
+					"type": "LIVRAISON",
+                    "siteName": "Firm/Thierry Henry",
+                    "Adress": "139 RUE MICHEL MONTAGNE 33350 - CASTILLON LA BATAILLE",
+                    "start": "24/07/2023 11:33",
+					"end": "24/07/2023 11:54",
+                    "status": "A livré",
+                    "totalWeight": 28.0,
+                    "totalVolume": 28.0,
+                    "totalDistance": 21.8,
+                    "numberProducts": 28,
+                    "longitude": -0.030283,
+                    "latitude": 44.857751,
+                    "phoneNumber": "+?????",
+                    "personToContact": "Thierry Henry",
+                    "Email": "thierry.henry@firm.com",
+                    "arrivedToSite": false,
+                    "products": [
+                        {
+                            "productName": "product 1",
+                            "quantity": "5"
+                        },
+                        {
+                            "productName": "product 2",
+                            "quantity": "7"
+                        },
+                        {
+                            "productName": "product 3",
+                            "quantity": "4"
+                        },
+                        {
+                            "productName": "product 4",
+                            "quantity": "8"
+                        },
+                        {
+                            "productName": "product 5",
+                            "quantity": "4"
+                        }
+                    ]
+                },
+				{
+					"type": "LIVRAISON",
+                    "siteName": "Firm/Hugo Lloris",
+                    "Adress": "Lieu dit Labrie 33420 - JUGAZAN",
+                    "start": "24/07/2023 12:14",
+					"end": "24/07/2023 12:34",
+                    "status": "A livré",
+                    "totalWeight": 3.0,
+                    "totalVolume": 3.0,
+                    "totalDistance": 37.0,
+                    "numberProducts": 3,
+                    "longitude": -0.150015,
+                    "latitude": 44.788406,
+                    "phoneNumber": "+?????",
+                    "personToContact": "Hugo Lloris",
+                    "Email": "hugo.lloris@firm.com",
+                    "arrivedToSite": false,
+                    "products": [
+                        {
+                            "productName": "product 2",
+                            "quantity": "2"
+                        },
+                        {
+                            "productName": "product 3",
+                            "quantity": "1"
+                        }
+                    ]
+                },
+				{
+					"type": "LIVRAISON",
+                    "siteName": "Firm/Karim Benzema",
+                    "Adress": "ROUTE DE L'INTENDANT BAT1 33750 - BEYCHAC ET CAILLAU",
+                    "start": "24/07/2023 14:30",
+					"end": "24/07/2023 14:50",
+                    "status": "A livré",
+                    "totalWeight": 4.0,
+                    "totalVolume": 4.0,
+                    "totalDistance": 66.7,
+                    "numberProducts": 4,
+                    "longitude": -0.383000,
+                    "latitude": 44.879136,
+                    "phoneNumber": "+?????",
+                    "personToContact": "Karim Benzema",
+                    "Email": "karim.benzema@firm.com",
+                    "arrivedToSite": false,
+                    "products": [
+                        {
+                            "productName": "product 1",
+                            "quantity": "3"
+                        },
+                        {
+                            "productName": "product 5",
+                            "quantity": "1"
+                        }
+                    ]
+                },
+				{
+					"type": "LIVRAISON",
+                    "siteName": "Firm/Lucas Hernandez",
+                    "Adress": "3 BOUQUEYRES ROUTE NATIONALE 89 33870 - VAYRES",
+                    "start": "24/07/2023 15:01",
+					"end": "24/07/2023 15:21",
+                    "status": "A livré",
+                    "totalWeight": 10.0,
+                    "totalVolume": 10.0,
+                    "totalDistance": 77.7,
+                    "numberProducts": 10,
+                    "longitude": -0.307530,
+                    "latitude": 44.880878,
+                    "phoneNumber": "+?????",
+                    "personToContact": "Lucas Hernandez",
+                    "Email": "lucas.hernandez@firm.com",
+                    "arrivedToSite": false,
+                    "products": [
+                        {
+                            "productName": "product 1",
+                            "quantity": "7"
+                        },
+                        {
+                            "productName": "product 2",
+                            "quantity": "1"
+                        },
+                        {
+                            "productName": "product 3",
+                            "quantity": "2"
+                        }
+                    ]
+                },
+				{
+					"type": "FIN_TOUR",
+                    "siteName": "DEPOT",
+                    "Adress": "1, zone artisanale LAVEAU 33230 - SAINT MEDARD DE GUIZIERES",
+                    "start": "24/07/2023 16:00",
+					"end": "24/07/2023 16:00",
+                    "status": "A livré",
+                    "totalWeight": 0.0,
+                    "totalVolume": 0.0,
+                    "totalDistance": 111.4,
+                    "numberProducts": 0,
+                    "longitude": -0.065484,
+                    "latitude": 45.014797,
+                    "phoneNumber": "",
+                    "personToContact": "",
+                    "Email": "",
+                    "arrivedToSite": false,
+                    "products": []
+                }
+                
+            ]
+        },
+        {
+            "reference": "2307241003",
+            "departureSite": "rue du tram 22980 - PLELAN LE PETIT",
+            "arrivalSite": "rue du tram 22980 - PLELAN LE PETIT",
+            "numberClient": 2,
+            "totalDistance": 245.4,
+            "totalTime": "03:52:00",
+            "totalWeight": 16.0,
+            "totalVolume": 16.0,
+            "status": "A realiser",
+            "date": "25-07-23",
+            "sequences": [
+                {
+					"type": "DEBUT_TOUR",
+                    "siteName": "DEPOT2",
+                    "Adress": "rue du tram 22980 - PLELAN LE PETIT",
+                    "start": "25/07/2023 08:00",
+					"end": "25/07/2023 08:00",
+                    "status": "A livré",
+                    "totalWeight": 0.0,
+                    "totalVolume": 0.0,
+                    "totalDistance": 0.0,
+                    "numberProducts": 0,
+                    "longitude": -2.219135,
+                    "latitude": 48.429464,
+                    "phoneNumber": "",
+                    "personToContact": "",
+                    "Email": "",
+                    "arrivedToSite": false,
+                    "products": []
+                },
+				{
+					"type": "CHARGEMENT",
+                    "siteName": "DEPOT2",
+                    "Adress": "rue du tram 22980 - PLELAN LE PETIT",
+                    "start": "25/07/2023 08:00",
+					"end": "25/07/2023 08:00",
+                    "status": "A livré",
+                    "totalWeight": 16.0,
+                    "totalVolume": 16.0,
+                    "totalDistance": 0.0,
+                    "numberProducts": 16,
+                    "longitude": -2.219135,
+                    "latitude": 48.429464,
+                    "phoneNumber": "+???",
+                    "personToContact": "Fabrice Dec",
+                    "Email": "fabrice.dec@pardus-it.com",
+                    "arrivedToSite": false,
+                    "products": [
+						{
+                            "productName": "product 1",
+                            "quantity": "4"
+                        },
+                        {
+                            "productName": "product 2",
+                            "quantity": "4"
+                        },
+                        {
+                            "productName": "product 3",
+                            "quantity": "4"
+                        },
+                        {
+                            "productName": "product 4",
+                            "quantity": "2"
+                        },
+                        {
+                            "productName": "product 5",
+                            "quantity": "2"
+                        }]
+                },
+                {
+					"type": "LIVRAISON",
+                    "siteName": "Firm/Hatem Arfa",
+                    "Adress": "ZA DU CLOS DES MARES 50290 - BREHAL",
+                    "start": "25/07/2023 09:28",
+					"end": "25/07/2023 09:48",
+                    "status": "A livré",
+                    "totalWeight": 10.0,
+                    "totalVolume": 10.0,
+                    "totalDistance": 115.7,
+                    "numberProducts": 10,
+                    "longitude": -1.505367,
+                    "latitude": 48.903590,
+                    "phoneNumber": "+?????",
+                    "personToContact": "Hatem Arfa",
+                    "Email": "hatem.arfa@firm.com",
+                    "arrivedToSite": false,
+                    "products": [
+                        {
+                            "productName": "product 1",
+                            "quantity": "2"
+                        },
+                        {
+                            "productName": "product 2",
+                            "quantity": "2"
+                        },
+                        {
+                            "productName": "product 3",
+                            "quantity": "2"
+                        },
+                        {
+                            "productName": "product 4",
+                            "quantity": "2"
+                        },
+                        {
+                            "productName": "product 5",
+                            "quantity": "2"
+                        }
+                    ]
+                },
+				{
+					"type": "LIVRAISON",
+                    "siteName": "Firm/Hugo Malo",
+                    "Adress": "16 RUE DE L'EPINE 50660 - LINGREVILLE",
+                    "start": "25/07/2023 09:57",
+					"end": "25/07/2023 10:17",
+                    "status": "A livré",
+                    "totalWeight": 6.0,
+                    "totalVolume": 6.0,
+                    "totalDistance": 123.0,
+                    "numberProducts": 6,
+                    "longitude": -1.526653,
+                    "latitude": 48.946458,
+                    "phoneNumber": "+?????",
+                    "personToContact": "Hugo Malo",
+                    "Email": "hugo.malo@firm.com",
+                    "arrivedToSite": false,
+                    "products": [
+                        {
+                            "productName": "product 1",
+                            "quantity": "2"
+                        },
+                        {
+                            "productName": "product 2",
+                            "quantity": "2"
+                        }
+						,
+                        {
+                            "productName": "product 3",
+                            "quantity": "2"
+                        }
+                    ]
+                },
+				{
+					"type": "FIN_TOUR",
+                    "siteName": "DEPOT2",
+                    "Adress": "rue du tram 22980 - PLELAN LE PETIT",
+                    "start": "25/07/2023 16:00",
+					"end": "25/07/2023 16:00",
+                    "status": "A livré",
+                    "totalWeight": 0.0,
+                    "totalVolume": 0.0,
+                    "totalDistance": 245.4,
+                    "numberProducts": 0,
+                    "longitude": -2.219135,
+                    "latitude": 48.429464,
+                    "phoneNumber": "",
+                    "personToContact": "",
+                    "Email": "",
+                    "arrivedToSite": false,
+                    "products": []
+                }
+                
+            ]
+        }
+    ]
+}
+  

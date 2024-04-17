@@ -21,14 +21,14 @@ class ConversionResult {
 
   factory ConversionResult.fromJson(Map<String, dynamic> json) {
     return ConversionResult(
-      date: json['date'],
-      rate: json['info']['rate'],
-      timestamp: json['info']['timestamp'],
-      amount: json['query']['amount'],
-      fromCurrency: json['query']['from'],
-      toCurrency: json['query']['to'],
-      result: json['result'],
-      success: json['success'],
+      date: json['date']?? '',
+      rate: json['info']['rate']?? '',
+      timestamp: json['info']['timestamp']?? '',
+      amount: json['query']['amount']?? '',
+      fromCurrency: json['query']['from']?? '',
+      toCurrency: json['query']['to']?? '',
+      result: json['result']?? '',
+      success: json['success']?? '',
     );
   }
 }
