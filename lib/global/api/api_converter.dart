@@ -27,7 +27,7 @@ class ApiHelper {
     }
   }
 
-  Future<ConversionResult> convertCurrency(
+  Future<ConversionResult> convertCurrencyFromApi(
       String from, String to, double amount) async {
     var url = Uri.parse('$_baseUrl/convert?to=$to&from=$from&amount=$amount');
     var headers = {'apikey': _apiKey};
@@ -41,7 +41,7 @@ class ApiHelper {
     }
   }
 
-  Future<double> convertCurrencySecondWay(
+  Future<double> convertCurrencyUsingExgRate(
       String from, String to, double amount) async {
     var url = Uri.parse('$_baseUrl/convert?to=$to&from=$from&amount=1');
     var headers = {'apikey': _apiKey};

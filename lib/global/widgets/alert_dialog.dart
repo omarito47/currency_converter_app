@@ -1,3 +1,4 @@
+import 'package:currency_converter_app/global/utils/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -35,7 +36,7 @@ class AlertDialogWidget {
           ),
           child: Padding(
             padding:
-                const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+                 EdgeInsets.symmetric(horizontal: ConstantHelper.sizex12, vertical: ConstantHelper.sizex08),
             child: Text(
               btnText,
               style: TextStyle(
@@ -50,9 +51,9 @@ class AlertDialogWidget {
         ),
       ],
       actionsPadding:
-          const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
-      shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(18.0))),
+           EdgeInsets.symmetric(horizontal: ConstantHelper.sizex12, vertical: ConstantHelper.sizex08),
+      shape:  RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(ConstantHelper.sizex18))),
     );
   }
 }

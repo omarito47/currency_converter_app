@@ -5,6 +5,7 @@ import 'package:currency_converter_app/global/api/api_converter.dart';
 import 'package:currency_converter_app/global/connectivity_handler/controller/connectivity_controller.dart';
 import 'package:currency_converter_app/global/model/currency_symbol.dart';
 import 'package:currency_converter_app/global/utils/constant.dart';
+import 'package:currency_converter_app/module/converter_page/controller/converter_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
@@ -19,47 +20,32 @@ class ConverterPage extends StatefulWidget {
 
 class _ConverterPageState extends State<ConverterPage> {
   // variables
+  final ConverterController _converterController =
+      ConverterController(); // Create an instance of ConverterController
+
   // Create an instance of connectivitySubscription
   late StreamSubscription<ConnectivityResult> _connectivitySubscription;
 
   // Create an instance of ConnectivityService
   late ConnectivityService _connectivityService;
-  late Future<List<SymbolName>> _symbolsListFuture;
-  SymbolName? _selectedFromSymbol;
-  SymbolName? _selectedToSymbol;
-  final ApiHelper apiHelper = ApiHelper();
-  late double result = 0.0;
+
   late TextEditingController amountController;
-  RefreshController _refreshControllerAPIon =
+  final RefreshController _refreshControllerAPIon =
       RefreshController(initialRefresh: false);
-  RefreshController _refreshControllerAPIoff =
+  final RefreshController _refreshControllerAPIoff =
       RefreshController(initialRefresh: false);
-  bool _isTimeOut = false;
+  
   // Functions
-  void convertCurrencyFunction(
-      {required String from,
-      required String to,
-      required String amount}) async {
-
-      double parsedAmount = double.parse(amount);
-      var output =
-          await apiHelper.convertCurrencySecondWay(from, to, parsedAmount);
-      setState(() {
-        result = output;
-      });
-      print(output);
-
-  }
 
   void _onRefreshAPIoff() async {
     setState(() {
-      _isTimeOut = false;
+      _converterController.isTimeOut = false;
     });
     // monitor network fetch
     await Future.delayed(const Duration(milliseconds: 1000));
     // if failed,use refreshFailed()
     // if failed,use loadFailed(),if no data return,use LoadNodata()
-    _symbolsListFuture = ApiHelper().getSymbolsList();
+    _converterController.symbolsListFuture = ApiHelper().getSymbolsList();
     if (mounted) setState(() {});
 
     _refreshControllerAPIon.refreshCompleted();
@@ -71,7 +57,7 @@ class _ConverterPageState extends State<ConverterPage> {
     await Future.delayed(Duration(seconds: 1));
     // if failed,use loadFailed(),if no data return,use LoadNodata()
     setState(() {
-      _symbolsListFuture = ApiHelper().getSymbolsList();
+      _converterController.symbolsListFuture = ApiHelper().getSymbolsList();
     });
     if (mounted) setState(() {});
     _refreshControllerAPIon.loadComplete();
@@ -80,16 +66,17 @@ class _ConverterPageState extends State<ConverterPage> {
 
   void _onRefreshAPIon() async {
     setState(() {
-      _isTimeOut = false;
+      _converterController.isTimeOut = false;
     });
     // monitor network fetch
     await Future.delayed(const Duration(milliseconds: 1000));
     // if failed,use refreshFailed()
     // if failed,use loadFailed(),if no data return,use LoadNodata()
-    convertCurrencyFunction(
-      from: _selectedFromSymbol!.code,
-      to: _selectedToSymbol!.code,
+    _converterController.convertCurrencyFunction(
+      from: _converterController.selectedFromSymbol!.code,
+      to: _converterController.selectedToSymbol!.code,
       amount: amountController.text,
+      setState: setState,
     );
     if (mounted) setState(() {});
 
@@ -102,10 +89,11 @@ class _ConverterPageState extends State<ConverterPage> {
     await Future.delayed(Duration(seconds: 1));
     // if failed,use loadFailed(),if no data return,use LoadNodata()
     setState(() {
-      convertCurrencyFunction(
-        from: _selectedFromSymbol!.code,
-        to: _selectedToSymbol!.code,
+      _converterController.convertCurrencyFunction(
+        from: _converterController.selectedFromSymbol!.code,
+        to: _converterController.selectedToSymbol!.code,
         amount: amountController.text,
+        setState: setState,
       );
     });
     if (mounted) setState(() {});
@@ -131,7 +119,7 @@ class _ConverterPageState extends State<ConverterPage> {
         .listen(_connectivityService.updateConnectivity);
     super.initState();
     amountController = TextEditingController();
-    _symbolsListFuture = ApiHelper().getSymbolsList();
+    _converterController.symbolsListFuture = ApiHelper().getSymbolsList();
   }
 
   @override
@@ -149,19 +137,21 @@ class _ConverterPageState extends State<ConverterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  Text(ConstantHelper.currencyAppTitle),
+        title: Text(ConstantHelper.currencyAppTitle),
         centerTitle: true,
       ),
       body: FutureBuilder<List<SymbolName>>(
-        future: _symbolsListFuture,
+        future: _converterController.symbolsListFuture,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             final symbolsList = snapshot.data!;
-            if (_selectedFromSymbol == null && symbolsList.isNotEmpty) {
-              _selectedFromSymbol = symbolsList[0];
+            if (_converterController.selectedFromSymbol == null &&
+                symbolsList.isNotEmpty) {
+              _converterController.selectedFromSymbol = symbolsList[0];
             }
-            if (_selectedToSymbol == null && symbolsList.length > 1) {
-              _selectedToSymbol = symbolsList[1];
+            if (_converterController.selectedToSymbol == null &&
+                symbolsList.length > 1) {
+              _converterController.selectedToSymbol = symbolsList[1];
             }
 
             return SmartRefresher(
@@ -179,31 +169,32 @@ class _ConverterPageState extends State<ConverterPage> {
                   child: Column(
                     children: [
                       SizedBox(height: ConstantHelper.sizex24 * 4),
-                       Text(ConstantHelper.amountToConvert),
+                      Text(ConstantHelper.amountToConvert),
                       SizedBox(height: ConstantHelper.sizex10),
                       TextField(
                         controller: amountController,
-                        decoration:  InputDecoration(
+                        decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           hintText: ConstantHelper.enterAmount,
                         ),
                         keyboardType: TextInputType.number,
                       ),
-                       SizedBox(height: ConstantHelper.sizex24*2),
+                      SizedBox(height: ConstantHelper.sizex24 * 2),
                       Column(
                         children: [
-                           Text(ConstantHelper.convertCurrency),
+                          Text(ConstantHelper.convertCurrency),
                           DropdownButton<SymbolName>(
                             //dropdownColor: Colors.grey,
-                            value: _selectedFromSymbol,
-                            hint:  Text(ConstantHelper.selectFromSymbol),
+                            value: _converterController.selectedFromSymbol,
+                            hint: Text(ConstantHelper.selectFromSymbol),
                             onChanged: (newValue) {
                               setState(() {
-                                _selectedFromSymbol = newValue;
+                                _converterController.selectedFromSymbol =
+                                    newValue;
                               });
                             },
                             underline: Container(
-                              height: 2,
+                              height: ConstantHelper.sizex02,
                               color: Colors.red,
                             ),
                             items: symbolsList.map((symbol) {
@@ -212,7 +203,9 @@ class _ConverterPageState extends State<ConverterPage> {
                                 child: Text(
                                   '${symbol.code} - ${symbol.name}',
                                   style: TextStyle(
-                                    color: _selectedFromSymbol == symbol
+                                    color: _converterController
+                                                .selectedFromSymbol ==
+                                            symbol
                                         ? Colors.black
                                         : Colors.red, // Change the color here
                                   ),
@@ -221,37 +214,45 @@ class _ConverterPageState extends State<ConverterPage> {
                             }).toList(),
                           ),
                           Container(
-                            margin:  EdgeInsets.all(ConstantHelper.sizex10),
+                            margin: EdgeInsets.all(ConstantHelper.sizex10),
                             decoration: const BoxDecoration(
                               shape: BoxShape.circle,
-                              color: Colors.white,
+                              color: Colors.blue,
                             ),
                             child: IconButton(
                               onPressed: () {
                                 late SymbolName symbol;
                                 setState(() {
-                                  symbol = _selectedFromSymbol!;
-                                  _selectedFromSymbol = _selectedToSymbol!;
-                                  _selectedToSymbol = symbol;
-                                  convertCurrencyFunction(
-                                      from: _selectedFromSymbol!.code,
-                                      to: _selectedToSymbol!.code,
-                                      amount: amountController.text);
+                                  symbol =
+                                      _converterController.selectedFromSymbol!;
+                                  _converterController.selectedFromSymbol =
+                                      _converterController.selectedToSymbol!;
+                                  _converterController.selectedToSymbol =
+                                      symbol;
+                                  _converterController.convertCurrencyFunction(
+                                    from: _converterController
+                                        .selectedFromSymbol!.code,
+                                    to: _converterController
+                                        .selectedToSymbol!.code,
+                                    amount: amountController.text,
+                                    setState: setState,
+                                  );
                                 });
                               },
                               icon: const Icon(Icons.swap_vert_outlined),
                               color: Colors
-                                  .black, // Optionally, you can specify the icon color
+                                  .white, // Optionally, you can specify the icon color
                             ),
                           ),
-                           Text(ConstantHelper.toCurrencyTitle),
+                          Text(ConstantHelper.toCurrencyTitle),
                           DropdownButton<SymbolName>(
                             //dropdownColor: Colors.blue,
-                            value: _selectedToSymbol,
-                            hint:  Text(ConstantHelper.selectToSymbol),
+                            value: _converterController.selectedToSymbol,
+                            hint: Text(ConstantHelper.selectToSymbol),
                             onChanged: (newValue) {
                               setState(() {
-                                _selectedToSymbol = newValue;
+                                _converterController.selectedToSymbol =
+                                    newValue;
                               });
                             },
                             underline: Container(
@@ -264,7 +265,9 @@ class _ConverterPageState extends State<ConverterPage> {
                                 child: Text(
                                   '${symbol.code} - ${symbol.name}',
                                   style: TextStyle(
-                                    color: _selectedToSymbol == symbol
+                                    color: _converterController
+                                                .selectedToSymbol ==
+                                            symbol
                                         ? Colors.black
                                         : Colors.blue, // Change the color here
                                   ),
@@ -274,42 +277,46 @@ class _ConverterPageState extends State<ConverterPage> {
                           ),
                         ],
                       ),
-                       SizedBox(height: ConstantHelper.sizex24*2),
-                      Text("Result = $result ${_selectedToSymbol!.code}",
-                          style:  TextStyle(fontSize: ConstantHelper.sizex20)),
-                       SizedBox(height: ConstantHelper.sizex24 +6 ),
+                      SizedBox(height: ConstantHelper.sizex24 * 2),
+                      Text(
+                          "Result = ${_converterController.result} ${_converterController.selectedToSymbol!.code}",
+                          style: TextStyle(fontSize: ConstantHelper.sizex20)),
+                      SizedBox(height: ConstantHelper.sizex24 + 6),
                       ElevatedButton(
                         onPressed: () {
                           if (amountController.text.trim().isEmpty ||
                               amountController.text
                                   .contains(RegExp(r'[A-Z,a-z]')) ||
                               amountController.text.contains(
-                                  RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
+                                  RegExp(r'[!@#$%^&*(),.?":{}|<>]')) ||
+                              !RegExp(r'^\d+$')
+                                  .hasMatch(amountController.text)) {
                             showDialog(
                               context: context,
                               builder: (context) => AlertDialog(
-                                title:  Text(ConstantHelper.warningTitle),
-                                content:  Text(
-                                    ConstantHelper.warningNonValidAmount),
+                                title: Text(ConstantHelper.warningTitle),
+                                content:
+                                    Text(ConstantHelper.warningNonValidAmount),
                                 actions: [
                                   TextButton(
                                     onPressed: () {
                                       Navigator.pop(context);
                                     },
-                                    child:  Text(ConstantHelper.ok),
+                                    child: Text(ConstantHelper.ok),
                                   ),
                                 ],
                               ),
                             );
                           } else {
-                            convertCurrencyFunction(
-                              from: _selectedFromSymbol!.code,
-                              to: _selectedToSymbol!.code,
-                              amount: amountController.text,
-                            );
+                            _converterController.convertCurrencyFunction(
+                                from: _converterController
+                                    .selectedFromSymbol!.code,
+                                to: _converterController.selectedToSymbol!.code,
+                                amount: amountController.text,
+                                setState: setState);
                           }
                         },
-                        child:  Text(ConstantHelper.convertTitle),
+                        child: Text(ConstantHelper.convertTitle),
                       ),
                     ],
                   ),
@@ -338,7 +345,7 @@ class _ConverterPageState extends State<ConverterPage> {
                           width: MediaQuery.of(context).size.width * .6),
                     ),
                     Padding(
-                      padding:  EdgeInsets.all(ConstantHelper.sizex08),
+                      padding: EdgeInsets.all(ConstantHelper.sizex08),
                       child: Text(
                         ConstantHelper.errorApi,
                         style: TextStyle(
