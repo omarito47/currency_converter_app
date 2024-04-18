@@ -1,9 +1,6 @@
 import 'dart:convert';
-
-import 'package:currency_converter_app/global/model/conversion_result_model.dart';
-import 'package:currency_converter_app/global/model/currency_symbol.dart';
 import 'package:http/http.dart' as http;
-
+import 'package:currency_converter_app/global/utils/global.dart';
 class ApiHelper {
   final String _apiKey = 'XAxynZ6zBckYom6mX7K0PSCxHlWx3j6Q';
   final String _baseUrl = 'https://api.apilayer.com/exchangerates_data';
@@ -20,7 +17,7 @@ class ApiHelper {
       symbolsMap.forEach((key, value) {
         symbolsList.add(SymbolName(code: key, name: value));
       });
-      print("--> ${symbolsList[0].name}");
+    
       return symbolsList;
     } else {
       throw Exception('${response.body}');

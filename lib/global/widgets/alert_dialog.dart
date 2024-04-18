@@ -1,6 +1,5 @@
-import 'package:currency_converter_app/global/utils/constant.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:currency_converter_app/global/utils/global.dart';
 
 class AlertDialogWidget {
   alertDialogWidget(
@@ -10,15 +9,12 @@ class AlertDialogWidget {
       required BuildContext context,
       required String header,
       required String description,
-      required String imagePath,
+    
       required String btnText,
       required String semanticsLabel}) {
     return AlertDialog(
-      backgroundColor: Colors.white,
-      icon: SvgPicture.asset(
-        imagePath,
-        semanticsLabel: semanticsLabel,
-      ),
+      backgroundColor: ConstantHelper.white,
+     
       title: Text(
         header,
         style: const TextStyle(
@@ -32,16 +28,17 @@ class AlertDialogWidget {
       actions: <Widget>[
         ElevatedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.blue, 
+            backgroundColor: ConstantHelper.blue,
           ),
           child: Padding(
-            padding:
-                 EdgeInsets.symmetric(horizontal: ConstantHelper.sizex12, vertical: ConstantHelper.sizex08),
+            padding: EdgeInsets.symmetric(
+                horizontal: ConstantHelper.sizex12,
+                vertical: ConstantHelper.sizex08),
             child: Text(
               btnText,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 16,
+                fontSize: ConstantHelper.sizex12,
                 color: Theme.of(context).scaffoldBackgroundColor,
               ),
             ),
@@ -50,10 +47,11 @@ class AlertDialogWidget {
           onPressed: () => checkConnectivity(),
         ),
       ],
-      actionsPadding:
-           EdgeInsets.symmetric(horizontal: ConstantHelper.sizex12, vertical: ConstantHelper.sizex08),
-      shape:  RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(ConstantHelper.sizex18))),
+      actionsPadding: EdgeInsets.symmetric(
+          horizontal: ConstantHelper.sizex12, vertical: ConstantHelper.sizex08),
+      shape: RoundedRectangleBorder(
+          borderRadius:
+              BorderRadius.all(Radius.circular(ConstantHelper.sizex18))),
     );
   }
 }

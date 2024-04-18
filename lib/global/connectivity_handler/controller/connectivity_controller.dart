@@ -1,10 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:currency_converter_app/global/utils/constant.dart';
-import 'package:currency_converter_app/global/widgets/alert_dialog.dart';
 import 'package:flutter/material.dart';
-
-
-
+import 'package:currency_converter_app/global/utils/global.dart';
+// this comment with 3 slash is to describe a class when u put the cursur on the class in other page u will see the comment appear
 /// Configuration class for network connectivity
 class ConnectivityService {
   static bool _isConnected = true;
@@ -51,7 +48,7 @@ class ConnectivityService {
         description:
             ConstantHelper.noConnexionDesc,
         btnText: ConstantHelper.reessayerText,
-        imagePath: 'assets/svg/wifi-x.svg',
+
         semanticsLabel: ConstantHelper.noConnectionIconText);
 
     showDialog(

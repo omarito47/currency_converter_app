@@ -1,15 +1,16 @@
-import 'package:currency_converter_app/global/api/api_converter.dart';
-import 'package:currency_converter_app/global/model/currency_symbol.dart';
 
+import 'package:currency_converter_app/global/utils/global.dart';
 class ConverterController {
   final ApiHelper apiHelper = ApiHelper();
   late double result = 0.0;
   late Future<List<SymbolName>> symbolsListFuture;
   SymbolName? selectedFromSymbol;
   SymbolName? selectedToSymbol;
-   bool isTimeOut = false;
+  bool isTimeOut = false;
+  final RegExp numericRegex =
+      RegExp(r'^\d*\.?\d*$'); // Regular expression for integers and doubles
 
-  Future<void> convertCurrencyFunction(
+  Future<bool?> convertCurrencyFunction(
       {required String from,
       required String to,
       required String amount,
@@ -20,7 +21,12 @@ class ConverterController {
     setState(() {
       result = output;
     });
-    print(output);
+
+    if (numericRegex.hasMatch(result.toString())) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   Future<void> initializeSymbolsList() async {
