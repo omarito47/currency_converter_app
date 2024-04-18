@@ -5,7 +5,7 @@ import 'package:currency_converter_app/global/model/currency_symbol.dart';
 import 'package:http/http.dart' as http;
 
 class ApiHelper {
-  final String _apiKey = 'd7mHwTjaaJ9H5Dvf99CdboMTiQBHVwm0';
+  final String _apiKey = 'XAxynZ6zBckYom6mX7K0PSCxHlWx3j6Q';
   final String _baseUrl = 'https://api.apilayer.com/exchangerates_data';
   Future<List<SymbolName>> getSymbolsList() async {
     var url = Uri.parse('$_baseUrl/symbols');
